@@ -1,0 +1,346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" src="resource/jquery-1.7.2.min.js"></script>
+<title>Test ModelConvert</title>
+</head>
+<body>
+	<button id="testAll">测试</button><button id="showResult">显示结果</button><button id="hideResult">隐藏结果</button>
+	<hr/>
+	<table id="url" width="100%"   style="word-break:break-all;word-wrap:break-word" border="1px">
+	<tr><td>基本类型测试</td><td></td></tr>
+	<tr><td width="400px;">
+		<a class="test" href="test.do?testbyte=1"
+			target="_blank">testbyte=1</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testByte=1"
+			target="_blank">testByte=1</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testshort=1"
+			target="_blank">testshort=1</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testShort=1"
+			target="_blank">testShort=1</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testInt=1"
+			target="_blank">testInt=1</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testInteger=1"
+			target="_blank">testInteger=1</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testlong=1"
+			target="_blank">testlong=1</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testLong=1"
+			target="_blank">testLong=1</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testfloat=1"
+			target="_blank">testfloat=1</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testFloat=1"
+			target="_blank">testFloat=1</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testchar=1"
+			target="_blank">testchar=1</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testCharacter=1"
+			target="_blank">testCharacter=1</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testdouble=1"
+			target="_blank">testdouble=1</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testDouble=1"
+			target="_blank">testDouble=1</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testboolean=1"
+			target="_blank">testboolean=1</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testBoolean=1"
+			target="_blank">testBoolean=1</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testString=1"
+			target="_blank">testString=1</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testDate=2012-01-01"
+			target="_blank">testDate=2012-01-01</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testDate=2012-01-01"
+			target="_blank">testDate=2012-01-01</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testBigDecimal=3.32"
+			target="_blank">testBigDecimal=3.32</a>
+	</td><td></td></tr>
+	
+	<tr><td>数组测试</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testbyteArr=1&testbyteArr=2"
+			target="_blank">testbyteArr=1&testbyteArr=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testByteArr=1&testByteArr=2"
+			target="_blank">testByteArr=1&testByteArr=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testshortArr=1&testshortArr=2"
+			target="_blank">testshortArr=1&testshortArr=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testShortArr=1&testShortArr=2"
+			target="_blank">testShortArr=1&testShortArr=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testIntArr=1&testIntArr=2"
+			target="_blank">testIntArr=1&testIntArr=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testIntegerArr=1&testIntegerArr=2"
+			target="_blank">testIntegerArr=1&testIntegerArr=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testlongArr=1&testlongArr=2"
+			target="_blank">testlongArr=1&testlongArr=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testLongArr=1&testLongArr=2"
+			target="_blank">testLongArr=1&testLongArr=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testfloatArr=1&testfloatArr=2"
+			target="_blank">testfloatArr=1&testfloatArr=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testFloatArr=1&testFloatArr=2"
+			target="_blank">testFloatArr=1&testFloatArr=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testcharArr=1&testcharArr=2"
+			target="_blank">testcharArr=1&testcharArr=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testCharacterArr=1&testCharacterArr=2"
+			target="_blank">testCharacterArr=1&testCharacterArr=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testdoubleArr=1&testdoubleArr=2"
+			target="_blank">testdoubleArr=1&testdoubleArr=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testDoubleArr=1&testDoubleArr=2"
+			target="_blank">testDoubleArr=1&testDoubleArr=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testbooleanArr=1&testbooleanArr=true"
+			target="_blank">testbooleanArr=1&testbooleanArr=true</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testBooleanArr=1&testBooleanArr=true"
+			target="_blank">testBooleanArr=1&testBooleanArr=true</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testStringArr=1&testStringArr=2"
+			target="_blank">testStringArr=1&testStringArr=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testDateArr=2012-01-01&testDateArr=2012-01-01 00:00:00"
+			target="_blank">testDateArr=2012-01-01&testDateArr=2012-01-01 00:00:00</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testBigDecimalArr=1&testBigDecimalArr=2"
+			target="_blank">testBigDecimalArr=1&testBigDecimalArr=2</a>
+	</td><td></td></tr>
+	
+	<tr><td>List测试(简单泛型)</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testbyteList=1&testbyteList=2"
+			target="_blank">testbyteList=1&testbyteList=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testShortList=1&testShortList=2"
+			target="_blank">testShortList=1&testShortList=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testIntegerList=1&testIntegerList=2"
+			target="_blank">testIntegerList=1&testIntegerList=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testLongList=1&testLongList=2"
+			target="_blank">testLongList=1&testLongList=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testFloatList=1&testFloatList=2"
+			target="_blank">testFloatList=1&testFloatList=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testCharacterList=1&testCharacterList=2"
+			target="_blank">testCharacterList=1&testCharacterList=2</a>
+	</td><td></td></tr>
+	
+	<tr><td>
+		<a class="test" href="test.do?testDoubleList=1&testDoubleList=2"
+			target="_blank">testDoubleList=1&testDoubleList=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testBooleanList=1&testBooleanList=true"
+			target="_blank">testBooleanList=1&testBooleanList=true</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testDateList=2012-01-01&testDateList=2012-01-01 00:00:00"
+			target="_blank">testDateList=2012-01-01&testDateList=2012-01-01 00:00:00</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testBigDecimalList=1&testBigDecimalList=2"
+			target="_blank">testBigDecimalList=1&testBigDecimalList=2</a>
+	</td><td></td></tr>
+	
+	<tr><td>
+		<a class="test" href="test.do?testDoubleList[0]=1&testDoubleList[3]=2"
+			target="_blank">testDoubleList[0]=1&testDoubleList[3]=2</a>
+	</td><td></td></tr>
+	
+	
+	<tr><td>LinkedList测试(简单泛型)</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testByteLinkedList=1&testByteLinkedList=2"
+			target="_blank">testByteLinkedList=1&testByteLinkedList=2</a>
+	</td><td></td></tr>
+	<tr><td>Set测试(简单泛型)</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testbyteSet=1&testbyteSet=2"
+			target="_blank">testbyteSet=1&testbyteSet=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testbyteSet[0]=1&testbyteSet[1]=2"
+			target="_blank">testbyteSet[0]=1&testbyteSet[1]=2</a>
+	</td><td></td></tr>
+	<tr><td>Map测试(简单泛型)</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testMapStringString[a]=1&testMapStringString[1]=2"
+			target="_blank">testMapStringString[a]=1&testMapStringString[1]=2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testMapStringString=1&testMapStringString=2"
+			target="_blank">testMapStringString=1&testMapStringString=2</a>
+	</td><td></td></tr>
+	
+	<tr><td>
+		<a class="test" href="test.do?testMapStringString[2012-01-01]=1&testMapStringString[2012-01-02]=false"
+			target="_blank">testMapStringString[2012-01-01]=1&testMapStringString[2012-01-02]=false</a>
+	</td><td></td></tr>
+	<tr><td>对象</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testModel.testInteger=1&testModel.testString=aaa"
+			target="_blank">testModel.testInteger=1&testModel.testString=aaa</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testModel.testInteger=1&testModel.testString=aaa&testModel.model.testInt=10"
+			target="_blank">testModel.testInteger=1&testModel.testString=aaa&testModel.model.testInt=10</a>
+	</td><td></td></tr>
+	<tr><td>对象[]</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testModelArr[1].testInteger=1&testModelArr[0].testString=aaa"
+			target="_blank">testModelArr[1].testInteger=1&testModelArr[0].testString=aaa</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testModelArr[10].testModelArr[3].model.testInt=111"
+			target="_blank">testModelArr[10].testModelArr[3].model.testInt=111</a>
+	</td><td></td></tr>
+	<tr><td>Map&lt;对象,对象&gt;</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testMapDateTestModel[2012-09-01].testModelArr[3].model.testInt=111"
+			target="_blank">testMapDateTestModel[2012-09-01].testModelArr[3].model.testInt=111</a>
+	</td><td></td></tr>
+	<tr><td>List&lt;对象&gt;</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testModelList[3].model.testInt=111"
+			target="_blank">testModelList[3].model.testInt=111</a>
+	</td><td></td></tr>
+	<tr><td>Set&lt;对象&gt;</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testModelSet[3].model.testInt=111&testModelSet[5].model.testInt=222"
+			target="_blank">testModelSet[3].model.testInt=111&testModelSet[5].model.testInt=222</a>
+	</td><td></td></tr>
+	
+	<tr><td>自定义类型转换器</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testPoint=1,2"
+			target="_blank">testPoint=1,2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testArryPoint=1,2"
+			target="_blank">testArryPoint=1,2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testArryPoint=1,2&testArryPoint=5,2"
+			target="_blank">testArryPoint=1,2&testArryPoint=5,2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testArryPoint[1]=1,2&testArryPoint[2]=5,2"
+			target="_blank">testArryPoint[1]=1,2&testArryPoint[2]=5,2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testSetPoint[1]=1,2&testSetPoint[2]=5,2"
+			target="_blank">testSetPoint[1]=1,2&testSetPoint[2]=5,2</a>
+	</td><td></td></tr>
+	<tr><td>
+		<a class="test" href="test.do?testMapPoint[1]=1,2&testMapPoint[2]=5,2"
+			target="_blank">testMapPoint[1]=1,2&testMapPoint[2]=5,2</a>
+	</td><td></td></tr>
+	</table>
+	<script type="text/javascript">
+	$(function(){
+		$("#testAll").click(function(){
+			$("a.test").each(function(){
+				$(this).trigger("click");
+			});
+		});
+
+		 $("a.test").click(function() {
+			var _this = $(this);
+			var href = this.href;
+			$.ajax({
+				type : "GET",
+				url : href,
+				dataType : "text",
+				success:function(text){
+					_this.parent().next().html("<B style='color:green'>Success</B><button class='showCurrResult'>显示/隐藏结果</button><div class='result' style='display:none'><textarea style='width:100%;height:300px;'>"+ text+"</textarea></div>");
+				},
+				error:function(text){
+					_this.parent().next().html("<B style='color:red'>Faild</B><button class='showCurrResult'>显示/隐藏结果</button><div class='result' style='display:none'>"+text.responseText+"</div>");
+				}
+			});
+			return false;
+		}); 
+		$("#showResult").click(function(){
+			$("div.result").show();
+		});
+		$("#hideResult").click(function(){
+			$("div.result").hide();
+		});
+		$("button.showCurrResult").live('click',function(){
+			$(this).next().toggle();
+		});
+	});
+	</script>
+</body>
+</html>

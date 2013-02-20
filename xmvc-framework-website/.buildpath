@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildpath>
+	<buildpathentry external="true" kind="lib" path="D:/eclipse-jee-indigo-SR2-win32/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.7.4/appengine-java-sdk-1.7.4/lib/shared/appengine-local-runtime-shared.jar"/>
+	<buildpathentry external="true" kind="lib" path="D:/eclipse-jee-indigo-SR2-win32/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.7.4/appengine-java-sdk-1.7.4/lib/opt/user/appengine-api-labs/v1/appengine-api-labs.jar"/>
+	<buildpathentry external="true" kind="lib" path="D:/eclipse-jee-indigo-SR2-win32/eclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.5.0.v201212122040-rel-r37/gwt-2.5.0/gwt-user.jar"/>
+	<buildpathentry external="true" kind="lib" path="D:/eclipse-jee-indigo-SR2-win32/eclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.5.0.v201212122040-rel-r37/gwt-2.5.0/gwt-dev.jar"/>
+</buildpath>
