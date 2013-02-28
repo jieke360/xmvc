@@ -8,14 +8,7 @@ public class URLMapping {
 	private String className;
 	private String methodName;
 	private String action;
-	private String model;
 	
-	public String getModel() {
-		return model;
-	}
-	public void setModel(String model) {
-		this.model = model;
-	}
 	public String getUri() {
 		return uri;
 	}
