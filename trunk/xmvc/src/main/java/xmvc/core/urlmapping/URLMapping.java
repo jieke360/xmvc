@@ -1,4 +1,4 @@
-package xmvc.core;
+package xmvc.core.urlmapping;
 
 public class URLMapping {
 	public enum Type{

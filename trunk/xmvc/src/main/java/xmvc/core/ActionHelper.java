@@ -9,18 +9,18 @@ import org.slf4j.LoggerFactory;
 
 
 
-public class ServletContext{
+public class ActionHelper{
 	
-	private static final ThreadLocal<ServletContext> tl = new ThreadLocal<ServletContext>();
-	public static final Logger log = LoggerFactory.getLogger(ServletContext.class);
+	private static final ThreadLocal<ActionHelper> tl = new ThreadLocal<ActionHelper>();
+	public static final Logger log = LoggerFactory.getLogger(ActionHelper.class);
 	private ServletRequest req;
 	private ServletResponse resp;
 	
 	public static void initServletContext(ServletRequest req,ServletResponse resp){
 		
-		ServletContext sc = tl.get();
+		ActionHelper sc = tl.get();
 		if(sc == null){
-			sc = new ServletContext();
+			sc = new ActionHelper();
 		}
 		log.info("线程上下文中填入request,response对象");
 		sc.req = req;
@@ -29,16 +29,16 @@ public class ServletContext{
 	}
 	
 	public static ServletRequest getRequest(){
-		ServletContext sc = tl.get();
+		ActionHelper sc = tl.get();
 		return sc.req;
 	}
 	
 	public static ServletResponse getResponse(){
-		ServletContext sc = tl.get();
+		ActionHelper sc = tl.get();
 		return sc.resp;
 	}
 	
-	private ServletContext(){
+	private ActionHelper(){
 		
 	}
 }

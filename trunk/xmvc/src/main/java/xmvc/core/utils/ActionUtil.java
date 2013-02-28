@@ -3,14 +3,15 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * 
- * $Id: ProcessorUtils.java 1211 2010-09-10 16:20:45Z calvinxiu $
+ * $Id: ActionUtil.java 1211 2010-09-10 16:20:45Z calvinxiu $
  */
-package xmvc.core;
+package xmvc.core.utils;
 
 import java.io.IOException;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
-import com.alibaba.fastjson.JSON;
+
+import xmvc.core.ActionHelper;
 
 
 /**
@@ -19,7 +20,7 @@ import com.alibaba.fastjson.JSON;
  * 
  * @author calvin
  */
-public class ProcessorUtils {
+public class ActionUtil {
 
 	//-- header 常量定义 --//
 	private static final String HEADER_ENCODING = "encoding";
@@ -84,27 +85,13 @@ public class ProcessorUtils {
 	}
 
 	/**
-	 * 直接输出JSON,使用Jackson转换Java对象.
-	 * 
-	 * @param data 可以是List<POJO>, POJO[], POJO, 也可以Map名值对.
-	 * @see #render(String, String, String...)
-	 */
-	public static void renderJson(final Object data, final String... headers) {
-		String jsonString = JSON.toJSONStringWithDateFormat(data, "yyyy-MM-dd");
-		renderJson(jsonString, headers);
-	}
-
-	/**
 	 * 直接输出支持跨域Mashup的JSONP.
 	 * 
 	 * @param callbackName callback函数名.
 	 * @param object Java对象,可以是List<POJO>, POJO[], POJO ,也可以Map名值对, 将被转化为json字符串.
 	 */
-	public static void renderJsonp(final String callbackName, final Object object, final String... headers) {
-		String jsonString = null;
-		jsonString = JSON.toJSONStringWithDateFormat(object, "yyyy-MM-dd");
+	public static void renderJsonp(final String callbackName, final String jsonString, final String... headers) {
 		String result = new StringBuilder().append(callbackName).append("(").append(jsonString).append(");").toString();
-
 		//渲染Content-Type为javascript的返回内容,输出结果为javascript语句, 如callback197("{html:'Hello World!!!'}");
 		render(ServletUtils.JS_TYPE, result, headers);
 	}
@@ -130,7 +117,7 @@ public class ProcessorUtils {
 			}
 		}
 
-		ServletResponse response = ServletContext.getResponse();
+		ServletResponse response = ActionHelper.getResponse();
 
 		//设置headers参数
 		String fullContentType = contentType + ";charset=" + encoding;
