@@ -2,12 +2,8 @@ package info.txtfile.app.test;
 
 import java.util.List;
 
-import xmvc.core.Processor;
 
-
-public class TestModel extends Processor {
-
-	private static final long serialVersionUID = -6050465713367923176L;
+public class TestModel{
 
 	private int testInt;
 	private Integer testInteger;
