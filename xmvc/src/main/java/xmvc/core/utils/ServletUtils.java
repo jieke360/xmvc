@@ -5,7 +5,7 @@
  * 
  * $Id: ServletUtils.java 1211 2010-09-10 16:20:45Z calvinxiu $
  */
-package xmvc.core;
+package xmvc.core.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Enumeration;

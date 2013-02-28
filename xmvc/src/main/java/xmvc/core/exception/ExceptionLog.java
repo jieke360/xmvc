@@ -1,4 +1,4 @@
-package xmvc.core;
+package xmvc.core.exception;
 
 import java.util.Date;
 
