@@ -4,8 +4,13 @@
 	<URLMapping>
 		<action>test.do</action>
 		<uri></uri>
-		<className>info.txtfile.app.test.TestProcessor</className>
+		<className>info.txtfile.app.test.TestAction</className>
 		<methodName>test</methodName>
 	</URLMapping>
+	<ModelConvertPropPath>type-convert.properties</ModelConvertPropPath>
+	<Interceptor>
+		<className>info.txtfile.app.test.TestInterceptor</className>
+		<urlPattern>[a-z]*.do</urlPattern>
+	</Interceptor>
 </url-config>
 

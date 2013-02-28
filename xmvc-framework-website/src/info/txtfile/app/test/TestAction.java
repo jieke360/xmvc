@@ -11,18 +11,19 @@ import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 
-import xmvc.core.ServletContext;
+import xmvc.core.ActionHelper;
 /**
  * example, 如需要获取request,response对象，可extends Processor 
  * @author xiaoqulai
  *
  */
-public class TestProcessor{
-	Logger log = LoggerFactory.getLogger(TestProcessor.class);
+public class TestAction{
+	Logger log = LoggerFactory.getLogger(TestAction.class);
 	private byte testbyte; //t=1
 	private Byte testByte; //t=1
 	private short testshort; //t=1
@@ -1276,13 +1277,17 @@ public class TestProcessor{
 
 
 	public void test() {
+		testService.test();
 		String jsonString = JSON.toJSONStringWithDateFormat(this, "yyyy-MM-dd",SerializerFeature.PrettyFormat);
 		try {
-			ServletContext.getResponse().getWriter().print(jsonString);
-			ServletContext.getResponse().getWriter().close();
+			ActionHelper.getResponse().getWriter().print(jsonString);
+			ActionHelper.getResponse().getWriter().close();
 			log.info("json:\n{}",jsonString);
 		} catch (IOException e) {
 			throw new RuntimeException("响应异常", e);
 		}
 	}
+	
+	@Autowired
+	private TestService testService;
 }
