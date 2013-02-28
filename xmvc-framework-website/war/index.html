@@ -20,18 +20,18 @@
   <div id="title">XMVC-Framework website</div>
   <div id="header">
   <ul>
-  	<li><a href="index.html">文档</a></li><li><a href="test.html" target="test">测试</a></li>
+  	<li><a href="index.html">文档</a></li><li><a href="test.html" target="test">Demo</a></li>
   	<li><a href="http://code.google.com/p/xmvc/w/list" target="wiki">wiki</a></li>
   	<li><a href="http://code.google.com/p/xmvc/downloads/list" target="download">下载</a></li>
-  	<li><a href="http://txt-file.appspot.com/" target="txtfile">Demo:txtfile</a></li>
+  	<li><a href="version.html" target="version">更新日志和计划</a></li>
   </ul>
   <div class="clearboth"></div>
   </div>
   
   <div id="discription">
   		<h3>XMVC是一个使用简单功能强大的mvc框架。它有如下特点：</h3>
-  		<p>1. 轻量级，快速启动，启动时间小于1秒，jar文件大小少于50K；</p>
-  		<p>2. 功能强大，适合复杂的业务场景，参考<a href="test.html">测试</a>；</p>
+  		<p>1. 轻量级，快速启动，启动时间小于1秒；</p>
+  		<p>2. 功能强大，适合复杂的业务场景，参考<a href="test.html">Demo</a>；</p>
   		<p>3. 使用简单，易于集成主流框架；</p>
   		<p>4. 能够轻松部署到云端，例如GAE,SAE;</p>	
   		<h3>XMVC不是为了重复发明轮子：</h3>
@@ -44,59 +44,62 @@
   		真正棘手的地方在于浏览器到服务器之间的数据交互，当一个复杂的数据模型以字符的形式从浏览器提交到服务器，开发人员需要花费一定的精力将其转化为JAVA模型，这正是XMVC的强项（Struts2也能做到，但XMVC更强大）.当浏览器以同步，异步方式将复杂的业务数据发送到服务器时,XMVC能够很好的解析.</p>
   		<p>XMVC能做的不仅仅这些.XMVC能够方便与Spring集成，因此，如果你还在SSH,不妨试试XSH咯.</p>
   		<h3>XMVC的核心设计</h3>
-  		<p>XMVC在代码层面并没有参考Struts2,但设计思想大致相同，Struts中的Action在XMVC中叫做Process,Process是线程安全的，轻量级的对象。可以通过继承父类获取Request、Response对象，也可以不继承任何类而单独存在。Process中的成员变量直接作为MVC中的M,Process作为C。</p>
+  		<p>XMVC在代码层面并没有参考Struts2,但设计思想大致相同，Struts中的Action在XMVC中也叫做Action,Action是线程安全的，轻量级的对象。可以通过继承父类XAction获取Request、Response对象，也可以不继承任何类而单独存在。Action中的成员变量直接作为MVC中的M,Action自身作为C。</p>
   		<h3>一分钟整合框架</h3>
   		<p>web.xml中加入</p>
-  		<p><textarea cols="100" rows="13">&lt;servlet&gt;
-  &lt;servlet-name&gt;x&lt;/servlet-name&gt;
-  &lt;servlet-class&gt;xmvc.core.XServlet&lt;/servlet-class&gt;
-  &lt;init-param&gt;
-    &lt;param-name&gt;urlConfigPath&lt;/param-name&gt;
-    &lt;param-value&gt;url-config.xml&lt;/param-value&gt;
-  &lt;/init-param&gt;
-  &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
-&lt;/servlet&gt;
-&lt;servlet-mapping&gt;
-  &lt;servlet-name&gt;x&lt;/servlet-name&gt;
-  &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
-&lt;/servlet-mapping&gt;</textarea></p>
-	<p>WEB-INF/lib中导入jar：<b>xmvc-x.x.x.jar</b>,<b>fastjson-x.x.x.jar</b>,<b>slf4j-api-x.x.x.jar</b>,为了让应用正常记录日志，需要加入日志框架，如<b>log4j</b>和<b>slf4j-log4j</b>连接器</p>
+  		<p><textarea cols="100" rows="14">
+<servlet>
+  <servlet-name>x</servlet-name>
+  <servlet-class>xmvc.core.XServlet</servlet-class>
+  <init-param>
+    <param-name>urlConfigPath</param-name>
+    <param-value>url-config.xml</param-value>
+  </init-param>
+  <load-on-startup>1</load-on-startup>
+</servlet>
+<servlet-mapping>
+  <servlet-name>x</servlet-name>
+  <url-pattern>*.do</url-pattern>
+</servlet-mapping>
+</textarea></p>
+	<p>WEB-INF/lib中导入jar：<b>xmvc-x.x.x.jar</b>,<b>slf4j-api-x.x.x.jar</b>,为了让应用正常记录日志，需要加入日志框架，如<b>log4j</b>和<b>slf4j-log4j</b>连接器</p>
 	<p>url-config.xml中类似如下代码：</p>
-	<p><textarea cols="100" rows="10">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;url-config&gt;
-  &lt;!-- test --&gt;
-  &lt;URLMapping&gt;
-    &lt;action&gt;test.do&lt;/action&gt;
-    &lt;uri&gt;&lt;/uri&gt;
-    &lt;className&gt;info.txtfile.app.test.TestAction&lt;/className&gt;
-    &lt;methodName&gt;test&lt;/methodName&gt;
-  &lt;/URLMapping&gt;
-&lt;/url-config&gt;</textarea></p>
-	<h3>更多配置</h3>
-	<p>XMVC通过配置文件实例化Process.url-config.xml中配置Process与请求url的关系，需要分模块的时候，可以在url-config.xml中导入其他的config文件</p>
-	<p><textarea cols="100" rows="4">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;url-config&gt;
-  &lt;import&gt;url-config-test.xml&lt;/import&gt;
-&lt;/url-config&gt;</textarea></p>
-<p>XMVC定义了几十种Convert,用于将页面参数转换成java模型，用户也可以自定义Convert,以适应各种java模型的转换，通过properties文件维护这种转换关系，例如：</p>
+	<p>
+	<textarea cols="100" rows="5">
+<?xml version="1.0" encoding="UTF-8"?>
+<url-config>
+    <import>url-config-test.xml</import>
+</url-config>
+</textarea></p><p>
+	<textarea cols="100" rows="15">
+<?xml version="1.0" encoding="UTF-8"?>
+<url-config>
+  <URLMapping>
+    <action>test.do</action>
+    <uri></uri>
+    <className>info.txtfile.app.test.TestAction</className>
+    <methodName>test</methodName>
+  </URLMapping>
+  <ModelConvertPropPath>type-convert.properties</ModelConvertPropPath>
+  <Interceptor>
+    <className>info.txtfile.app.test.TestInterceptor</className>
+    <urlPattern>[a-z]*.do</urlPattern>
+  </Interceptor>
+</url-config>
+</textarea></p>
+	<p>XMVC通过配置文件实例化Action,url-config.xml中配置Action与请求url的关系，需要分模块的时候，可以在url-config.xml中导入其他的config文件</p>
+	<p>XMVC定义了几十种Convert,用于将页面参数转换成java模型，用户也可以自定义Convert,以适应各种java模型的转换，通过properties文件维护这种转换关系，例如：</p>
 	<p><code>info.txtfile.app.test.Point=info.txtfile.app.test.PointConvert</code></p>
 	<p>上述定义了一个坐标对象Point（包含坐标x,y）对于的类型转换器为PointConvert，PointConvert需要继承框架中的父类和接口.</p>
-<p>properties路径在web.xml中记录：</p>
-<p><textarea cols="100" rows="17">&lt;servlet&gt;
-  &lt;servlet-name&gt;x&lt;/servlet-name&gt;
-  &lt;servlet-class&gt;xmvc.core.XServlet&lt;/servlet-class&gt;
-  &lt;init-param&gt;
-    &lt;param-name&gt;urlConfigPath&lt;/param-name&gt;
-    &lt;param-value&gt;url-config.xml&lt;/param-value&gt;
-  &lt;/init-param&gt;
-  &lt;init-param&gt;
-    &lt;param-name&gt;modelConvertPropPath&lt;/param-name&gt;
-  &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
-&lt;/servlet&gt;
-&lt;servlet-mapping&gt;
-  &lt;servlet-name&gt;x&lt;/servlet-name&gt;
-  &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
-&lt;/servlet-mapping&gt;</textarea></p>
+	<p>拦截器的中的方法在Action中的方法调用之前执行。开发人员可以自定义拦截器，自定义的拦截器需要实现XInterceptor接口。在url-config.xml中配置拦截器完整类名和需要拦截的URL的正则表达式。</p>
+<h3>集成Spring框架</h3>
+ <p>XMVC集成Spring框架非常简单，导入相应的Spring jar文件之后，在Action中即可直接注入spring Bean:</p>
+ <p>
+ <textarea cols="100" rows="3">
+@Autowired
+private TestService testService;
+</textarea>
+ </p>
 <h3>完整的例子</h3>
 	<p> 这是一个txt格式下载的网站，使用了XMVC框架：svn checkout http://txtfile.googlecode.com/svn/trunk/ txtfile-read-only (持续完善中...)</p>
   </div>
