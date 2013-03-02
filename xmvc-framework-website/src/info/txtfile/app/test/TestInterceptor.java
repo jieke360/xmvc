@@ -4,7 +4,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import xmvc.core.interceptor.XInterceptor;
+import com.alanx.xmvc.core.interceptor.XInterceptor;
 
 public class TestInterceptor implements XInterceptor {
 	public void intercept(Object action, ServletRequest req, ServletResponse resp) {
