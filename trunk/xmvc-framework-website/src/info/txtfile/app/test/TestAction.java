@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 
-import xmvc.core.ActionHelper;
+import com.alanx.xmvc.core.ActionHelper;
 /**
  * example, 如需要获取request,response对象，可extends Processor 
  * @author xiaoqulai
