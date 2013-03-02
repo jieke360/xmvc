@@ -2,7 +2,7 @@ package info.txtfile.app.test;
 
 import java.util.List;
 
-import xmvc.core.Processor;
+import com.alanx.xmvc.core.Processor;
 
 
 public class TestModel extends Processor {
