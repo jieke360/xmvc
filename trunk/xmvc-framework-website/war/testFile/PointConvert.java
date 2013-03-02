@@ -1,7 +1,7 @@
 package info.txtfile.app.test;
 
-import xmvc.core.ModelConvert;
-import xmvc.core.modelconvertplug.IModelConvert;
+import com.alanx.xmvc.core.ModelConvert;
+import com.alanx.xmvc.core.modelconvertplug.IModelConvert;
 
 public class PointConvert  extends ModelConvert implements IModelConvert{
 	public Object convertObjectValue(Object arg0) {
